@@ -56,11 +56,14 @@ The `libcaustic.so` and assets used in this project are extracted from:
 ```
 
 ---
-
 ## ❗ Legal Note
 
-This project uses binary components (`libcaustic.so`, assets) from the original **Caustic3 Android APK**, which is **not open-source**. This repository is for **educational and technical exploration only.** Redistribution of copyrighted
-assets is not permitted.
+- **Caustic3** and all related trademarks are the property of their original creator, **SingleCellSoftware**.
+- The original app is no longer maintained and has been removed from all major app stores.
+- **Porting permission has been granted by the original developer** for a full, native PS Vita port.
+- Special thanks to the PS Vita homebrew community.
+- Feedback and code reviews by experienced Vita developers and reverse engineers are welcome.
+
 
 ---
 
