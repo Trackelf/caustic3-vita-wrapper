@@ -1,0 +1,32 @@
+CMakeFiles/caustic3.elf.dir/src/log.c.obj: \
+ /home/track11/vita-project/src/log.c \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/io/fcntl.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/types.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2common/types.h \
+ /home/track11/vitasdk/lib/gcc/arm-vita-eabi/10.3.0/include/stddef.h \
+ /home/track11/vitasdk/lib/gcc/arm-vita-eabi/10.3.0/include/stdint.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/stdint.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/machine/_default_types.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/features.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/_newlib_version.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/bits/posix_opt.h \
+ /home/track11/vitasdk/lib/gcc/arm-vita-eabi/10.3.0/include-fixed/limits.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/_intsup.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/_stdint.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/vitasdk/build_utils.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2common/kernel/iofilemgr.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/io/stat.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/string.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/_ansi.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/newlib.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/config.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/machine/ieeefp.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/reent.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/_ansi.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/_types.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/machine/_types.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/lock.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/cdefs.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/_locale.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/strings.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/string.h

@@ -1,0 +1,6 @@
+/home/track11/vita-project/build/CMakeFiles/caustic3.elf.dir
+/home/track11/vita-project/build/CMakeFiles/caustic3.elf-velf.dir
+/home/track11/vita-project/build/CMakeFiles/eboot.bin-self.dir
+/home/track11/vita-project/build/CMakeFiles/Caustic3Vita.vpk-vpk.dir
+/home/track11/vita-project/build/CMakeFiles/edit_cache.dir
+/home/track11/vita-project/build/CMakeFiles/rebuild_cache.dir
