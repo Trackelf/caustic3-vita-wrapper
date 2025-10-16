@@ -32,6 +32,15 @@ If successful, **Caustic3 will become the first fully functional DAW available o
 - ✅ Custom Soloader integration implemented
 - 🔄 `libcaustic.so` loads but requires `so_util` for Android compatibility
 - ⏳ Next step: Patch loading and resolve symbols via `so_util`
+- 🔄 Integrate so_util: load patches and resolve missing symbols; add automated symbol check (dump & diff)
+- 🧭 Complete path mapping: map /sdcard and /storage/emulated/0 → ux0:/data/CAUSTIC3/; normalize paths; enforce RO from app0:/assets and RW to data
+- 🧰 Android shims: route __android_log_print → debug_log; provide minimal libandroid/AAsset stubs or redirect through the path mapper; stub remaining Android APIs as needed
+- 🎧 Audio backend: choose OpenSL-ES wrapper vs direct SceAudioOut; implement ring buffer + audio thread; pause/resume; decide 44.1 kHz vs 48 kHz and resample if needed; underrun handling
+- 📦 Build/packaging: consolidate CMake install rules for assets/configs; deterministic asset copy; first-run data dir bootstrap for ux0:/data/CAUSTIC3
+- 🧪 Sanity tests: asset read→copy test; symbol-resolution smoke test; fixed-tone (sine) audio test; verify file permissions on real hardware
+- 🔍 Diagnostics: optional on-screen overlay (FPS, audio underruns); log verbosity levels; log truncation/rotation
+- 📚 Docs: build steps, deployment, troubleshooting; credit soloader and so_util; list known issues and workarounds
+- 🚧 Known issues to watch: path case sensitivity; potential 44.1 ↔ 48 kHz mismatch; missing Android runtime-permission equivalents; PSTV vs handheld audio timing differences
 
 ---
 
