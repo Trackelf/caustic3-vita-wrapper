@@ -1,4 +1,5 @@
 # Caustic3 Vita Wrapper
+![110352994-d9775d80-8036-11eb-8a68-cf0cd8ae3615](https://github.com/user-attachments/assets/cc5a5b71-b3cf-4637-ad25-460042b2c8fc)
 
 **Porting project of the mobile DAW "Caustic3" to the PlayStation Vita**
 
