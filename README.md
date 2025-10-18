@@ -74,7 +74,13 @@ The `libcaustic.so` and assets used in this project are extracted from:
 - Special thanks to the PS Vita homebrew community.
 - Feedback and code reviews by experienced Vita developers and reverse engineers are welcome.
 
+## Licensing and Permissions
 
+This is a community, non-commercial port. The original author has granted permission to bundle `libcaustic.so` and an unlock package inside the VPK. The exact permission text and verification details are documented in `PERMISSION.md`.
+
+- No official support from the original author
+- Text name use only
+- If permission terms change, we will comply and update distribution accordingly
 ---
 
 ## 🤝 Credits
