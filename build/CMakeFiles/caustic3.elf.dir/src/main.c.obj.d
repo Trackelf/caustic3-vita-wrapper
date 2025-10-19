@@ -1,5 +1,7 @@
 CMakeFiles/caustic3.elf.dir/src/main.c.obj: \
  /home/track11/vita-project/src/main.c \
+ /home/track11/vita-project/src/audio.h \
+ /home/track11/vita-project/src/libloader.h \
  /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/processmgr.h \
  /home/track11/vitasdk/arm-vita-eabi/include/vitasdk/build_utils.h \
  /home/track11/vitasdk/arm-vita-eabi/include/psp2common/kernel/processmgr.h \
@@ -58,5 +60,4 @@ CMakeFiles/caustic3.elf.dir/src/main.c.obj: \
  /home/track11/vitasdk/arm-vita-eabi/include/sys/sched.h \
  /home/track11/vitasdk/arm-vita-eabi/include/machine/types.h \
  /home/track11/vitasdk/arm-vita-eabi/include/sys/stdio.h \
- /home/track11/vita-project/src/libloader.h \
  /home/track11/vita-project/src/log.h

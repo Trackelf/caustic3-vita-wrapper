@@ -168,6 +168,30 @@ Caustic3Vita.vpk-vpk/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Caustic3Vita.vpk-vpk.dir/build.make CMakeFiles/Caustic3Vita.vpk-vpk.dir/build
 .PHONY : Caustic3Vita.vpk-vpk/fast
 
+src/audio.obj: src/audio.c.obj
+.PHONY : src/audio.obj
+
+# target to build an object file
+src/audio.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/caustic3.elf.dir/build.make CMakeFiles/caustic3.elf.dir/src/audio.c.obj
+.PHONY : src/audio.c.obj
+
+src/audio.i: src/audio.c.i
+.PHONY : src/audio.i
+
+# target to preprocess a source file
+src/audio.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/caustic3.elf.dir/build.make CMakeFiles/caustic3.elf.dir/src/audio.c.i
+.PHONY : src/audio.c.i
+
+src/audio.s: src/audio.c.s
+.PHONY : src/audio.s
+
+# target to generate assembly for a file
+src/audio.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/caustic3.elf.dir/build.make CMakeFiles/caustic3.elf.dir/src/audio.c.s
+.PHONY : src/audio.c.s
+
 src/libloader.obj: src/libloader.c.obj
 .PHONY : src/libloader.obj
 
@@ -240,6 +264,30 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/caustic3.elf.dir/build.make CMakeFiles/caustic3.elf.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/resolve.obj: src/resolve.c.obj
+.PHONY : src/resolve.obj
+
+# target to build an object file
+src/resolve.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/caustic3.elf.dir/build.make CMakeFiles/caustic3.elf.dir/src/resolve.c.obj
+.PHONY : src/resolve.c.obj
+
+src/resolve.i: src/resolve.c.i
+.PHONY : src/resolve.i
+
+# target to preprocess a source file
+src/resolve.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/caustic3.elf.dir/build.make CMakeFiles/caustic3.elf.dir/src/resolve.c.i
+.PHONY : src/resolve.c.i
+
+src/resolve.s: src/resolve.c.s
+.PHONY : src/resolve.s
+
+# target to generate assembly for a file
+src/resolve.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/caustic3.elf.dir/build.make CMakeFiles/caustic3.elf.dir/src/resolve.c.s
+.PHONY : src/resolve.c.s
+
 src/so_util.obj: src/so_util.c.obj
 .PHONY : src/so_util.obj
 
@@ -264,30 +312,6 @@ src/so_util.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/caustic3.elf.dir/build.make CMakeFiles/caustic3.elf.dir/src/so_util.c.s
 .PHONY : src/so_util.c.s
 
-src/soloader.obj: src/soloader.c.obj
-.PHONY : src/soloader.obj
-
-# target to build an object file
-src/soloader.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/caustic3.elf.dir/build.make CMakeFiles/caustic3.elf.dir/src/soloader.c.obj
-.PHONY : src/soloader.c.obj
-
-src/soloader.i: src/soloader.c.i
-.PHONY : src/soloader.i
-
-# target to preprocess a source file
-src/soloader.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/caustic3.elf.dir/build.make CMakeFiles/caustic3.elf.dir/src/soloader.c.i
-.PHONY : src/soloader.c.i
-
-src/soloader.s: src/soloader.c.s
-.PHONY : src/soloader.s
-
-# target to generate assembly for a file
-src/soloader.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/caustic3.elf.dir/build.make CMakeFiles/caustic3.elf.dir/src/soloader.c.s
-.PHONY : src/soloader.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -300,6 +324,9 @@ help:
 	@echo "... caustic3.elf-velf"
 	@echo "... eboot.bin-self"
 	@echo "... caustic3.elf"
+	@echo "... src/audio.obj"
+	@echo "... src/audio.i"
+	@echo "... src/audio.s"
 	@echo "... src/libloader.obj"
 	@echo "... src/libloader.i"
 	@echo "... src/libloader.s"
@@ -309,12 +336,12 @@ help:
 	@echo "... src/main.obj"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/resolve.obj"
+	@echo "... src/resolve.i"
+	@echo "... src/resolve.s"
 	@echo "... src/so_util.obj"
 	@echo "... src/so_util.i"
 	@echo "... src/so_util.s"
-	@echo "... src/soloader.obj"
-	@echo "... src/soloader.i"
-	@echo "... src/soloader.s"
 .PHONY : help
 
 

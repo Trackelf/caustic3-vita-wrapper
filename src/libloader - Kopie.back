@@ -1,0 +1,103 @@
+#include <psp2/io/fcntl.h>
+#include <psp2/io/stat.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdarg.h>
+
+#include "soloader.h"
+
+#include "libloader.h"
+#include "log.h"
+
+static char g_root[256] = "ux0:/data/CAUSTIC3/";
+static char g_buf[768];
+
+static void logf(const char *fmt, ...) {
+    char line[512];
+    va_list ap;
+    va_start(ap, fmt);
+    vsnprintf(line, sizeof(line), fmt, ap);
+    va_end(ap);
+    debug_log(line);
+}
+
+static int starts_with(const char *s, const char *pfx) {
+    size_t a = strlen(pfx);
+    return strncmp(s, pfx, a) == 0;
+}
+
+const char* MapPath_Vita(const char *in) {
+    if (!in || !*in) return in;
+
+    if (starts_with(in, "file:///android_asset/")) {
+        snprintf(g_buf, sizeof(g_buf), "app0:/assets/%s", in + strlen("file:///android_asset/"));
+        return g_buf;
+    }
+    if (starts_with(in, "assets:/")) {
+        snprintf(g_buf, sizeof(g_buf), "app0:/assets/%s", in + strlen("assets:/"));
+        return g_buf;
+    }
+    if (starts_with(in, "/sdcard/")) {
+        snprintf(g_buf, sizeof(g_buf), "%s%s", g_root, in + strlen("/sdcard/"));
+        return g_buf;
+    }
+    if (starts_with(in, "/storage/emulated/0/")) {
+        snprintf(g_buf, sizeof(g_buf), "%s%s", g_root, in + strlen("/storage/emulated/0/"));
+        return g_buf;
+    }
+    if (starts_with(in, "ux0:/") || starts_with(in, "app0:/")) {
+        return in;
+    }
+
+    return in;
+}
+
+void CausticNative_SetRootPath(const char *path) {
+    if (path && *path) {
+        snprintf(g_root, sizeof(g_root), "%s", path);
+    }
+
+    sceIoMkdir("ux0:/data", 0777);
+    sceIoMkdir(g_root, 0777);
+    debug_log("SetRootPath aufgerufen.");
+}
+
+void CausticRenderer_nativeInitGraphics(int width, int height) {
+    debug_log("InitGraphics Dummy ausgeführt.");
+}
+
+int Loader_EarlyInit(void) {
+    const char *libpath = "app0:/lib/libcaustic.so";
+    int ret = soloader_load_library(libpath);
+    
+    char msg[256];
+    snprintf(msg, sizeof(msg), "soloader_load_library(%s) -> %d", libpath, ret);
+    debug_log(msg);
+    
+    return ret;
+}
+#include "so_util.h"
+#include "resolve.h"
+
+extern unsigned char _binary_lib_libcaustic_so_start[];
+extern unsigned char _binary_lib_libcaustic_so_end[];
+
+int Loader_EarlyInit(void) {
+    so_ctx_t ctx;
+    size_t size = _binary_lib_libcaustic_so_end - _binary_lib_libcaustic_so_start;
+
+    int ret = so_init(&ctx, _binary_lib_libcaustic_so_start, size);
+    if (ret < 0) {
+        debug_log("so_init failed.");
+        return -1;
+    }
+
+    so_relocate(&ctx);
+    so_resolve(&ctx, resolve_symbol);
+    so_flush_caches(&ctx);
+    so_initialize(&ctx);
+
+    debug_log("Caustic .so loaded via so_util.");
+    return 0;
+}
+

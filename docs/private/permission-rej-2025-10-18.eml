@@ -1,0 +1,524 @@
+Delivered-To: silvan320@gmail.com
+Received: by 2002:a05:6022:97:20b0:dc:d630:a5cf with SMTP id h23-n2csp5109060laq;
+        Fri, 17 Oct 2025 14:59:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCVfDUaFVekTyqeG+GHtKlI/lMnXwxQLyBvxAx/wi49L2azDjc01m6yoXXbyVuYK4JNbeykojzuU7x0=@gmail.com
+X-Received: by 2002:a05:6102:26d4:b0:530:f657:c2e with SMTP id ada2fe7eead31-5d7dd6704efmr2630406137.13.1760738352184;
+        Fri, 17 Oct 2025 14:59:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1760738352; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ehL9uJpuFUZlBHjRsbQMc7WyFsMneJFK7SKrkt1emz8jbOYeD4Me+F2o3C7YrniBWA
+         GV5sp+lQXtdPnmR08KLWez5TwQGA4oXMdgy9wa8vBVKmaFbB+xvUl6OsPkE7ZxKEV/mR
+         r0nCQyxMPabaZyTgDlUH2sVPdsicMR4HZy7MWTDmrGrsJFRsAXq+x5cvESgAOLTb6CG2
+         hj5R9w3a0/wSTjySsNHXet7AYtcwuIFt+wKNVSth1dGUa7YauA4UMb1HfJaW8Yn0eTGp
+         OibXdVOqxn4T0VKIWLa7V+vwvNov88ytoEnxUnzODlvh0Ajgc8Gwp1iYFmjOdXwL6SxV
+         Eq2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=NP0hVCRT+ePOCet7TuN/KihQlktzyazdtFcZ4Amlh7k=;
+        fh=cyWg/uYLzo9K9tw8R8kXLYYWFaeXHc5AEdW0G3OLjL4=;
+        b=IvUtDSzs0K7HU2zyr6fqfIN/Vw/dg0zDcu478y1Q707O/s5ozHTsfvuVXCM3Y86Nqj
+         VDmClqMnVo4tk/2+WetlULthTj9useAP9f0Hb+1F4xCxL203AuIMJ2+xZXybEUTGPChU
+         G0/JXvpBhTwq7DeugOohphTHEsHJobDn5vVGRHoD7Ae+odAxOWZczomIklUr+FUGZvjT
+         H9NqlBK1mVKdF/MYIck//gz8rq1xaVuNrDxUCE+eKXvZA9Hlm4+ssh0ELHKKY4kBYp/d
+         DySxLjkrFcSdDJUouEiNuq2cTXVjUNxlVUur90rc57HiGHqOdofM6F6UioLO0GSJ5SX0
+         jSHQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=nRpLdDLN;
+       spf=pass (google.com: domain of causticapp@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=causticapp@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <causticapp@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id ada2fe7eead31-5d96be8ed21sor224918137.0.2025.10.17.14.59.11
+        for <silvan320@gmail.com>
+        (Google Transport Security);
+        Fri, 17 Oct 2025 14:59:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of causticapp@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=nRpLdDLN;
+       spf=pass (google.com: domain of causticapp@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=causticapp@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760738351; x=1761343151; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NP0hVCRT+ePOCet7TuN/KihQlktzyazdtFcZ4Amlh7k=;
+        b=nRpLdDLNoedGEJpkc7GM9BS7w6TBaiyvKPRTvROTFDt5NwPhlsKgjH72bhkO/5tfq0
+         H9DYscLCvx+fsq7Q4+VJPAF/15N5aCGk2VMyuR2DBwzYgZru6dMjcvKSFGQPA4IanfOl
+         W2FWT49aEPnM+3EQNFiggO0BjnMO0vZtjnW5g7pSvUkLUyO0OZG/FzGhBiP45DSf3d/o
+         Z6g7gPONRH0jtWYGfwNE8Qyr7SaJYBVqUkm7W+c76Fdj1B1jXrssfaLvTxClJ/I19s/h
+         +o6goktMrPD1qOvJR3c3hay9FhmZ8RUnPBN7ktq1iR/KGvy6FnnsM28XCeKf4w5/Dr1M
+         U6Zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760738351; x=1761343151;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NP0hVCRT+ePOCet7TuN/KihQlktzyazdtFcZ4Amlh7k=;
+        b=wpQn+xgULKT8JaR0RYSmWpy+BHFRrzJHr7Y0D5ShxrxzCbB7iQf35SsNgjieq/SBM6
+         zbazjeM9WbdQpok0YeJkb427XP4f9LZf1cJsB1H2uHekQ+16CyvGQ7coPtqKLohWKNRH
+         2oiLdD+2srwMYgLZ3wSe36UANYqRncVayq5UviUaj3ca7vndDgYthnA3RtrKEI93X7WH
+         fR/KaytRVolqcG77w+ugJntBDrNEyGFVnXUOkhjI2gcdjs56zqj8irt2XDfKRksikuer
+         2JT8YbSz6+rmP7gIhq362vfh01RJk9/ReBooMe3Gdqw7DjHnnx9sBPpXAoAm281TrnT2
+         WlXQ==
+X-Gm-Message-State: AOJu0YxQ/LslST08ZffJzz78UzxAt7Z3zcivAZ4RE1pdWzRl+nNhEBWT
+	wmtD3cHkAQjo9ptYu114U3M83A8+ygktW2rz4CRDXE1xjQJPcq8n5R0kWLwlgXVsV63GBHeDKFl
+	552xTZuWw+DVExR0QotFla2zL/DFIqzZ8jzW5
+X-Gm-Gg: ASbGncvz8a6CsaiANfSLRrzbUBnJNOHN2wp9vAeA72p92r09sc6f+kbebuX7MTpT7/h
+	dAXbUqPHNwkMN6gSVOBvxh4emewjhmpq+fnXorlNgPBN4Y9Q2D8C4vhw1F5xqwlErFiTlSKDJrY
+	TXOr6qDTEGTqAge0UuoJS8p7a2YzRWam9BHjkBapgkav4oIXimeCujjEltFXMYCcBfoEFYaFsIe
+	EPXoHI57CH/vM5C6zaFrUPuRgUHUnAuXHMKlQIHt62Q7v6rDglNsI/bMBCCHfSsssJ1ZMs=
+X-Google-Smtp-Source: AGHT+IGGlX9HtgeDFhcXip+UAk9U1T3qPq+IRN55v/XuQ0wmb9ewbyDO7GM6hqAFxmKSdAJlAGEJ0OGjmH7fUn38rsY=
+X-Received: by 2002:a05:6102:c54:b0:4e5:8d09:7b12 with SMTP id
+ ada2fe7eead31-5d7dd561de7mr2393896137.7.1760738351002; Fri, 17 Oct 2025
+ 14:59:11 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAEPLfDGe3nNU+DXTeiFvtGnj1sJm2U2+d5iefHKczHd4Nr1=PQ@mail.gmail.com>
+ <CAMhpojV5gRaipAS9jxs-o1NCkd4ZND6iu-i=38nU0TF+kH2k7g@mail.gmail.com>
+ <CAEPLfDGWmQd6NF706+Hbn-VsshiMyn+tCOLCa6-sLT1Pgr5M0g@mail.gmail.com>
+ <CAMhpojXScFJ3qiq1=709T0L87kViyVRGsr_XU9O0W3aO1pOWdg@mail.gmail.com> <CAEPLfDFfDyU3Lqh4KT07v9o5EFi2a5qrjqtuZZm-Ouay92gEmA@mail.gmail.com>
+In-Reply-To: <CAEPLfDFfDyU3Lqh4KT07v9o5EFi2a5qrjqtuZZm-Ouay92gEmA@mail.gmail.com>
+From: Caustic App <causticapp@gmail.com>
+Date: Sat, 18 Oct 2025 07:58:58 +1000
+X-Gm-Features: AS18NWCm_FKvHAyJKTmcgDZCmGIeFJte5hS1xFhSNds_tJ4RG4NmWgOy1hZRWIQ
+Message-ID: <CAMhpojV7km5dbSrbbg5Vhn_8bz2XpSQKSt5Mj51rSqOm1EC7og@mail.gmail.com>
+Subject: Re: Long Caustic3/PS VIta questions
+To: Silvan Tonymus <silvan320@googlemail.com>
+Content-Type: multipart/alternative; boundary="000000000000f43661064161d793"
+
+--000000000000f43661064161d793
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Silvan, you have my permission to ship the .so, including an unlocker
+app equivalent for use in your port project:
+
+=E2=80=9CI permit a non-commercial community distribution of a PS Vita port=
+ of
+Caustic 3 and bundling of libcaustic.so and the unlock package inside the
+VPK. No support from me
+
+Good luck,
+Rej
+
+On Thu, Oct 16, 2025 at 5:12=E2=80=AFPM Silvan Tonymus <silvan320@googlemai=
+l.com>
+wrote:
+
+> Hi Rej,
+>
+> we emailed in 2021 about a community PS Vita port of Caustic 3. The port
+> is now close to a first public release. Repo:
+> https://github.com/Trackelf/caustic3-vita-wrapper
+>
+> I=E2=80=99d like to ship a simple standalone VPK. May I have your permiss=
+ion to
+> bundle the required binaries inside the VPK: libcaustic.so and the Causti=
+c
+> Unlock Key app (or a minimal equivalent that satisfies the package-name
+> check)? Distribution would be strictly non-commercial, with clear credit =
+to
+> you, text name only, and a =E2=80=9Cno support from the original author=
+=E2=80=9D notice. I
+> will honor any takedown request.
+>
+> If bundling the unlocked app is not acceptable, I will ship the wrapper
+> only and require users to supply their own legally obtained APKs.
+>
+> For clarity, could you reply with one of these short statements I can
+> quote in the README?
+>
+> A) =E2=80=9CI permit a non-commercial community distribution of a PS Vita=
+ port of
+> Caustic 3 and bundling of libcaustic.so and the unlock package inside the
+> VPK. No support from me.=E2=80=9D
+>
+> B) =E2=80=9CI permit a non-commercial community distribution of a PS Vita=
+ port of
+> Caustic 3, but no bundling of original APKs or unlock packages. Users mus=
+t
+> supply their own APKs. No support from me.=E2=80=9D
+>
+> Thanks a lot,
+>
+> Silvan
+>
+>
+> Am Mo., 8. M=C3=A4rz 2021 um 13:30 Uhr schrieb Caustic App <
+> causticapp@gmail.com>:
+>
+>> No, there's no dealing with imei or hashes. The main app looks for an
+>> installed app with the correct package name and that's all. Very simple.=
+ My
+>> goal was not to stop pirates, just to have a simple unlock method.
+>>
+>> On Mon, 8 Mar 2021, 22:27 Silvan Tonymus, <silvan320@googlemail.com>
+>> wrote:
+>>
+>>> Hello Rej,
+>>> thank you for your very fast answer. I know what you mean but I don't
+>>> see any problems in this case because  it is a port and not a official
+>>> release. You can have a look on the https://vitadb.rinnegatamante.it
+>>> database which lists all of our ports right now. For example: If someon=
+e
+>>> want to get GTA San Andreas working on the Vita he has to buy the andro=
+id
+>>> version and copy paste the data files from the apk to the vita. Don't a=
+sk
+>>> me why but I think there will be no body to get a ps vita port support =
+from
+>>> rockstargames... if you know what I mean. Officialy there is no one who
+>>> complaines about problems with homebrews because it is just a option to=
+ get
+>>> android apps running on other devices which are known for that they
+>>> coulnd't run android games. I cannot guaranteed you that there will be =
+no
+>>> "mental easy person" which will use your support email adress for
+>>> complaining about the app port but the amount of people will be very ve=
+ry
+>>> low.  On the other hand your Caustic3.apk is based on android 2.2.0 and=
+ I
+>>> wouldn't see any problems to get this think working perfectly except th=
+e
+>>> points I have listed in the previous mail.
+>>>
+>>> We have to know what the key.apk does with the main files of caustic.
+>>> I'm affraid to see that your caustic 3 key is based on the android phon=
+e
+>>> hash which downloads it from playstore, so the key.apk would generate a
+>>> unique key for the main app which checks the phone IMEI or hashrate of
+>>> something to get sure that the key is right. Otherwise we have to write
+>>> another apk loader for the key to simulate the phone IMEI on the ps vit=
+a to
+>>> make caustic3 activation work correct.
+>>> In the key.apk there is a libcaustickey.so file and I think it will be
+>>> installed in a path of android which I don't know jet. There is no .so =
+file
+>>> in Caustic3 folder so we have to know how to deal with the libcausticke=
+y.so
+>>> and then the activation process will be fine I think.
+>>>
+>>> Anyways... I appreciate your statement and I will thank you for your
+>>> openness. I will tell my people about our writing and we will see whats
+>>> happen
+>>>
+>>> Regards
+>>>
+>>> Silvan
+>>>
+>>>
+>>>
+>>>
+>>> Am Mo., 8. M=C3=A4rz 2021 um 12:52 Uhr schrieb Caustic App <
+>>> causticapp@gmail.com>:
+>>>
+>>>> Hi Silvan, to be honest if it's to port it to a defunct / open
+>>>> platform, I'm happy for you to use the X86 version or use the android
+>>>> version with key included if you can figure out how to make it run. I
+>>>> wouldn't want to deal support issues from someone who paid for it and
+>>>> expects support in this case. Do you know what I mean?
+>>>>
+>>>> Regards,
+>>>> Rej Poirier
+>>>>
+>>>> On Mon, 8 Mar 2021, 21:43 Silvan Tonymus, <silvan320@googlemail.com>
+>>>> wrote:
+>>>>
+>>>>> Hello Mr Rej,
+>>>>> I hope you are doing good.
+>>>>>
+>>>>> My name is Silvan and I'm a supporter of Sony Vita ports homebrew
+>>>>> development scene.
+>>>>> Sony discontinued the Vita handheld back in 2019 and the community
+>>>>> around this handheld agrees that it's Sonys marketing fault that made=
+ the
+>>>>> Vita not as successful as it could be.
+>>>>> But there are some homebrew developer around the globe, which are ver=
+y
+>>>>> passionated to get the Vita the games and apps which it deserves.
+>>>>> My personal favourite app on android is caustic3 because of the amoun=
+t
+>>>>> of capabilities which comes with it.
+>>>>>
+>>>>> Our question is: Would you give us some informations about the
+>>>>> caustic3.apk source files of the app to make our work easier?
+>>>>>
+>>>>> We would prevent it from pirating caustic3 but speake to you later...
+>>>>>
+>>>>> I've done some research and find out that caustic3 could run greatly
+>>>>> on the vita hardware.
+>>>>> Vita got a ARM Cortex-A9 CPU and runs armv7 applications  with 4 core=
+s
+>>>>> full threaded.
+>>>>> It got 512 mb of ram and a wm1804e audio chip which also was used at
+>>>>> samsung note 4 series and Galaxy S6 aswell.
+>>>>> The Vita OS is based on FreeBSD an allready got an open kernel for
+>>>>> loading homebrew. It isn't similar to android runtime environment but=
+ we
+>>>>> can execute armv7 .apks with a seperate .apk loader to make things ru=
+n
+>>>>> nativly on the Vita.
+>>>>> The main problems I see could be following points in caustic 3:
+>>>>> - FTP Server: We have to code a loader which is able to access the ps
+>>>>> vita network feature
+>>>>> - The Vita got a Touchpad on the backside which can be used for live
+>>>>> automation. In this case we have to translate gesture touchsignales t=
+o hid
+>>>>> signals and convert them to cc mappings for binding them to drumpads =
+(for
+>>>>> example)
+>>>>> - Vita got 2 analoge sticks which can be helpfull in automations too.
+>>>>> Same here like at the back touchpad
+>>>>> - OTG support for external midi mappings. The Vita got a usb to host
+>>>>> chip but its only used for the docking feature to a tv. We have to ge=
+t with
+>>>>> it and find out if it will work with an otg adapter.
+>>>>> - exporting / writing premissions. We have to get the exact file
+>>>>> structure of caustic3 to make the exporting and saving process possib=
+le.
+>>>>> This is nessesary for the whole port of caustic3.
+>>>>> - we have to know how you programmed the sound latency button. There
+>>>>> are a view ranges and we dont know how you pull down the latency of t=
+he
+>>>>> input/output sounds.
+>>>>> - preventing piracy is a very big point. First of all we could port
+>>>>> the free x86 version of caustic to vita and it would be run definetly=
+ but
+>>>>> we want that you get something with the vita port. In conclusion we h=
+ave to
+>>>>> port the android version of it and its licence key management.
+>>>>> We want the user to buy caustic 3 key. They have to download and
+>>>>> install both : the key and the main application. Then they has to run=
+ a
+>>>>> app2apk extractor to get both .apk files on internal phone storage. A=
+fter
+>>>>> that they have to copy both of the apks to the Vita, install both of =
+them
+>>>>> and only if the activator matches the caustic3 version it will be use=
+able
+>>>>> as full version.
+>>>>>
+>>>>> Thank you for reading this email and I would be proude to read your
+>>>>> answer.
+>>>>>
+>>>>> kind regards
+>>>>>
+>>>>> Silvan
+>>>>>
+>>>>> PS: Sorry for my complicated english, I'm from Germany.
+>>>>>
+>>>>>
+>>>>>
+>>>>>
+>>>>>
+
+--000000000000f43661064161d793
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hi Silvan, you have my permission to ship the .so, includi=
+ng an unlocker app equivalent for use in your port project:<div><br></div><=
+div><span style=3D"color:rgb(0,0,0);font-family:Arial,sans-serif;font-size:=
+14.6667px">=E2=80=9CI permit a non-commercial community distribution of a P=
+S Vita port of Caustic 3 and bundling of libcaustic.so and the unlock packa=
+ge inside the VPK. No support from me</span></div><div><span style=3D"color=
+:rgb(0,0,0);font-family:Arial,sans-serif;font-size:14.6667px"><br></span></=
+div><div><span style=3D"color:rgb(0,0,0);font-family:Arial,sans-serif;font-=
+size:14.6667px">Good luck, </span></div><div><span style=3D"color:rgb(0,0,0=
+);font-family:Arial,sans-serif;font-size:14.6667px">Rej</span></div></div><=
+br><div class=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" class=
+=3D"gmail_attr">On Thu, Oct 16, 2025 at 5:12=E2=80=AFPM Silvan Tonymus &lt;=
+<a href=3D"mailto:silvan320@googlemail.com">silvan320@googlemail.com</a>&gt=
+; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
+ 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div di=
+r=3D"ltr">
+<p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt" =
+id=3D"m_6585139853606732892gmail-docs-internal-guid-8497b283-7fff-3f73-d364=
+-10f5f5eaa514"><span style=3D"font-size:11pt;font-family:Arial,sans-serif;c=
+olor:rgb(0,0,0);background-color:transparent;font-weight:400;font-style:nor=
+mal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-=
+space:pre-wrap">Hi Rej,</span></p><br><p dir=3D"ltr" style=3D"line-height:1=
+.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:11pt;font-fa=
+mily:Arial,sans-serif;color:rgb(0,0,0);background-color:transparent;font-we=
+ight:400;font-style:normal;font-variant:normal;text-decoration:none;vertica=
+l-align:baseline;white-space:pre-wrap">we emailed in 2021 about a community=
+ PS Vita port of Caustic 3. The port is now close to a first public release=
+. Repo: <a href=3D"https://github.com/Trackelf/caustic3-vita-wrapper" targe=
+t=3D"_blank">https://github.com/Trackelf/caustic3-vita-wrapper</a></span></=
+p><br><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom=
+:0pt"><span style=3D"font-size:11pt;font-family:Arial,sans-serif;color:rgb(=
+0,0,0);background-color:transparent;font-weight:400;font-style:normal;font-=
+variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre=
+-wrap">I=E2=80=99d like to ship a simple standalone VPK. May I have your pe=
+rmission to bundle the required binaries inside the VPK: libcaustic.so and =
+the Caustic Unlock Key app (or a minimal equivalent that satisfies the pack=
+age-name check)? Distribution would be strictly non-commercial, with clear =
+credit to you, text name only, and a =E2=80=9Cno support from the original =
+author=E2=80=9D notice. I will honor any takedown request.</span></p><br><p=
+ dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><s=
+pan style=3D"font-size:11pt;font-family:Arial,sans-serif;color:rgb(0,0,0);b=
+ackground-color:transparent;font-weight:400;font-style:normal;font-variant:=
+normal;text-decoration:none;vertical-align:baseline;white-space:pre-wrap">I=
+f bundling the unlocked app is not acceptable, I will ship the wrapper only=
+ and require users to supply their own legally obtained APKs.</span></p><br=
+><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"=
+><span style=3D"font-size:11pt;font-family:Arial,sans-serif;color:rgb(0,0,0=
+);background-color:transparent;font-weight:400;font-style:normal;font-varia=
+nt:normal;text-decoration:none;vertical-align:baseline;white-space:pre-wrap=
+">For clarity, could you reply with one of these short statements I can quo=
+te in the README?</span></p><br><p dir=3D"ltr" style=3D"line-height:1.38;ma=
+rgin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:11pt;font-family:A=
+rial,sans-serif;color:rgb(0,0,0);background-color:transparent;font-weight:4=
+00;font-style:normal;font-variant:normal;text-decoration:none;vertical-alig=
+n:baseline;white-space:pre-wrap">A) =E2=80=9CI permit a non-commercial comm=
+unity distribution of a PS Vita port of Caustic 3 and bundling of libcausti=
+c.so and the unlock package inside the VPK. No support from me.=E2=80=9D</s=
+pan></p><br><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-=
+bottom:0pt"><span style=3D"font-size:11pt;font-family:Arial,sans-serif;colo=
+r:rgb(0,0,0);background-color:transparent;font-weight:400;font-style:normal=
+;font-variant:normal;text-decoration:none;vertical-align:baseline;white-spa=
+ce:pre-wrap">B) =E2=80=9CI permit a non-commercial community distribution o=
+f a PS Vita port of Caustic 3, but no bundling of original APKs or unlock p=
+ackages. Users must supply their own APKs. No support from me.=E2=80=9D</sp=
+an></p><br><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-b=
+ottom:0pt"><span style=3D"font-size:11pt;font-family:Arial,sans-serif;color=
+:rgb(0,0,0);background-color:transparent;font-weight:400;font-style:normal;=
+font-variant:normal;text-decoration:none;vertical-align:baseline;white-spac=
+e:pre-wrap">Thanks a lot,</span></p><p dir=3D"ltr" style=3D"line-height:1.3=
+8;margin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:11pt;font-fami=
+ly:Arial,sans-serif;color:rgb(0,0,0);background-color:transparent;font-weig=
+ht:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-=
+align:baseline;white-space:pre-wrap">Silvan</span></p>
+
+<br></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_at=
+tr">Am Mo., 8. M=C3=A4rz 2021 um 13:30=C2=A0Uhr schrieb Caustic App &lt;<a =
+href=3D"mailto:causticapp@gmail.com" target=3D"_blank">causticapp@gmail.com=
+</a>&gt;:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0p=
+x 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div d=
+ir=3D"auto">No, there&#39;s no dealing with imei or hashes. The main app lo=
+oks for an installed app with the correct package name and that&#39;s all. =
+Very simple. My goal was not to stop pirates, just to have a simple unlock =
+method.=C2=A0</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D=
+"gmail_attr">On Mon, 8 Mar 2021, 22:27 Silvan Tonymus, &lt;<a href=3D"mailt=
+o:silvan320@googlemail.com" target=3D"_blank">silvan320@googlemail.com</a>&=
+gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0=
+px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div =
+dir=3D"ltr"><div>Hello Rej,</div><div>thank you for your very fast answer. =
+I know what you mean but I don&#39;t see any problems in this case because=
+=C2=A0 it is a port and not a official release. You can have a look on the =
+<a href=3D"https://vitadb.rinnegatamante.it" rel=3D"noreferrer" target=3D"_=
+blank">https://vitadb.rinnegatamante.it</a> database which lists all of our=
+ ports right now. For example: If someone want to get GTA San Andreas worki=
+ng on the Vita he has to buy the android version and copy paste the data fi=
+les from the apk to the vita. Don&#39;t ask me why but I think there will b=
+e no body to get a ps vita port support from rockstargames... if you know w=
+hat I mean. Officialy there is no one who complaines about problems with ho=
+mebrews because it is just a option to get android apps running on other de=
+vices which are known for that they coulnd&#39;t run android games. I canno=
+t guaranteed you that there will be no &quot;mental easy person&quot; which=
+ will use your support email adress for complaining about the app port but =
+the amount of people will be very very low.=C2=A0 On the other hand your Ca=
+ustic3.apk is based on android 2.2.0 and I wouldn&#39;t see any problems to=
+ get this think working perfectly except the points I have listed in the pr=
+evious mail. <br></div><div><br></div><div>We have to know what the key.apk=
+ does with the main files of caustic. I&#39;m affraid to see that your caus=
+tic 3 key is based on the android phone hash which downloads it from playst=
+ore, so the key.apk would generate a unique key for the main app which chec=
+ks the phone IMEI or hashrate of something to get sure that the key is righ=
+t. Otherwise we have to write another apk loader for the key to simulate th=
+e phone IMEI on the ps vita to make caustic3 activation work correct.<br></=
+div><div>In the key.apk there is a libcaustickey.so file and I think it wil=
+l be installed in a path of android which I don&#39;t know jet. There is no=
+ .so file in Caustic3 folder so we have to know how to deal with the libcau=
+stickey.so and then the activation process will be fine I think.</div><div>=
+<br></div><div>Anyways... I appreciate your statement and I will thank you =
+for your openness. I will tell my people about our writing and we will see =
+whats happen</div><div><br></div><div>Regards <br></div><div><br></div><div=
+>Silvan <br></div><div><br></div><div><br></div><div><br></div></div><br><d=
+iv class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">Am Mo., 8. M=
+=C3=A4rz 2021 um 12:52=C2=A0Uhr schrieb Caustic App &lt;<a href=3D"mailto:c=
+austicapp@gmail.com" rel=3D"noreferrer" target=3D"_blank">causticapp@gmail.=
+com</a>&gt;:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px=
+ 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><di=
+v dir=3D"auto"><div>Hi Silvan, to be honest if it&#39;s to port it to a def=
+unct / open platform, I&#39;m happy for you to use the X86 version or use t=
+he android version with key included if you can figure out how to make it r=
+un. I wouldn&#39;t want to deal support issues from someone who paid for it=
+ and expects support in this case. Do you know what I mean?=C2=A0</div><div=
+ dir=3D"auto"><br></div><div dir=3D"auto">Regards,=C2=A0</div><div dir=3D"a=
+uto">Rej Poirier=C2=A0<br><br><div class=3D"gmail_quote" dir=3D"auto"><div =
+dir=3D"ltr" class=3D"gmail_attr">On Mon, 8 Mar 2021, 21:43 Silvan Tonymus, =
+&lt;<a href=3D"mailto:silvan320@googlemail.com" rel=3D"noreferrer" target=
+=3D"_blank">silvan320@googlemail.com</a>&gt; wrote:<br></div><blockquote cl=
+ass=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid=
+ rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><div>Hello Mr=20
+<span dir=3D"auto">Rej,</span></div><div><span dir=3D"auto">I hope you are =
+doing good. <br></span></div><div><span dir=3D"auto"><br></span></div><div>=
+<span dir=3D"auto">My name is Silvan and I&#39;m a supporter of Sony Vita p=
+orts homebrew development scene.</span></div><div><span dir=3D"auto">Sony d=
+iscontinued the Vita handheld back in 2019 and the community around this ha=
+ndheld agrees that it&#39;s Sonys marketing fault that made the Vita not as=
+ successful as it could be.</span></div><div><span dir=3D"auto">But there a=
+re some homebrew developer around the globe, which are very passionated to =
+get the Vita the games and apps which it deserves. <br></span></div><div><s=
+pan dir=3D"auto">My personal favourite app on android is caustic3 because o=
+f the amount of capabilities which comes with it. <br></span></div><div><sp=
+an dir=3D"auto"><br></span></div><div><span dir=3D"auto">Our question is: W=
+ould you give us some informations about the caustic3.apk source files of t=
+he app to make our work easier?</span></div><div><span dir=3D"auto"><br></s=
+pan></div><div><span dir=3D"auto">We would prevent it from pirating caustic=
+3 but speake to you later...</span></div><div><span dir=3D"auto"><br></span=
+></div><div><span dir=3D"auto">I&#39;ve done some research and find out tha=
+t caustic3 could run greatly on the vita hardware. <br></span></div><div><s=
+pan dir=3D"auto">Vita got a ARM Cortex-A9 CPU and runs armv7 applications=
+=C2=A0 with 4 cores full threaded.</span></div><div><span dir=3D"auto">It g=
+ot 512 mb of ram and a wm1804e audio chip which also was used at samsung no=
+te 4 series and Galaxy S6 aswell. <br></span></div><div><span dir=3D"auto">=
+The Vita OS is based on FreeBSD an allready got an open kernel for loading =
+homebrew. It isn&#39;t similar to android runtime environment but we can ex=
+ecute armv7 .apks with a seperate .apk loader to make things run nativly on=
+ the Vita.</span></div><div><span dir=3D"auto">The main problems I see coul=
+d be following points in caustic 3:</span></div><div><span dir=3D"auto">- F=
+TP Server: We have to code a loader which is able to access the ps vita net=
+work feature</span></div><div><span dir=3D"auto">- The Vita got a Touchpad =
+on the backside which can be used for live automation. In this case we have=
+ to translate gesture touchsignales to hid signals and convert them to cc m=
+appings for binding them to drumpads (for example)<br></span></div><div><sp=
+an dir=3D"auto">- Vita got 2 analoge sticks which can be helpfull in automa=
+tions too. Same here like at the back touchpad<br></span></div><div><span d=
+ir=3D"auto">- OTG support for external midi mappings. The Vita got a usb to=
+ host chip but its only used for the docking feature to a tv. We have to ge=
+t with it and find out if it will work with an otg adapter.</span></div><di=
+v><span dir=3D"auto">- exporting / writing premissions. We have to get the =
+exact file structure of caustic3 to make the exporting and saving process p=
+ossible. This is nessesary for the whole port of caustic3.</span></div><div=
+><span dir=3D"auto">- we have to know how you programmed the sound latency =
+button. There are a view ranges and we dont know how you pull down the late=
+ncy of the input/output sounds.</span></div><div><span dir=3D"auto">- preve=
+nting piracy is a very big point. First of all we could port the free x86 v=
+ersion of caustic to vita and it would be run definetly but we want that yo=
+u get something with the vita port. In conclusion we have to port the andro=
+id version of it and its licence key management.</span></div><div><span dir=
+=3D"auto">We want the user to buy caustic 3 key. They have to download and =
+install both : the key and the main application. Then they has to run a app=
+2apk extractor to get both .apk files on internal phone storage. After that=
+ they have to copy both of the apks to the Vita, install both of them and o=
+nly if the activator matches the caustic3 version it will be useable as ful=
+l version.</span></div><div><span dir=3D"auto"><br></span></div><div><span =
+dir=3D"auto">Thank you for reading this email and I would be proude to read=
+ your answer.</span></div><div><span dir=3D"auto"><br></span></div><div>kin=
+d regards</div><div><br></div><div>Silvan</div><div><br></div><div>PS: Sorr=
+y for my complicated english, I&#39;m from Germany.</div><div><br></div><di=
+v><span dir=3D"auto"><br></span></div><div><span dir=3D"auto"><br></span></=
+div><div><span dir=3D"auto"><br></span></div>
+
+</div>
+</blockquote></div></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div>
+
+--000000000000f43661064161d793--

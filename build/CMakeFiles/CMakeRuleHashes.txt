@@ -3,5 +3,5 @@
 9a0d70d6c419dc93bcf96433202eedec CMakeFiles/caustic3.elf-velf
 daf9c69f87f4dfcc9d2c2d0d1e9b409a CMakeFiles/eboot.bin-self
 9878a524c5e0b94b9b04e52755ee3703 Caustic3Vita.vpk.out
-4ea4fab0a39ea3f4f4dc9898274f91a8 Caustic3Vita.vpk_param.sfo
+17e33a061a0379d19d0c73e5c3d83e61 Caustic3Vita.vpk_param.sfo
 5e5a74ac8d12929e664c361ecfdc1134 eboot.bin.out

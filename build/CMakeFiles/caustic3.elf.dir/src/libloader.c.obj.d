@@ -44,6 +44,12 @@ CMakeFiles/caustic3.elf.dir/src/libloader.c.obj: \
  /home/track11/vitasdk/arm-vita-eabi/include/sys/sched.h \
  /home/track11/vitasdk/arm-vita-eabi/include/machine/types.h \
  /home/track11/vitasdk/arm-vita-eabi/include/sys/stdio.h \
- /home/track11/vita-project/src/soloader.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/stdlib.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/machine/stdlib.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/alloca.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/sysmem.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2common/kernel/sysmem.h \
+ /home/track11/vita-project/src/so_util.h \
+ /home/track11/vita-project/src/resolve.h \
  /home/track11/vita-project/src/libloader.h \
  /home/track11/vita-project/src/log.h

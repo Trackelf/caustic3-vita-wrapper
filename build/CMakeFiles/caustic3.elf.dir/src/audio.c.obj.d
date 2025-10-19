@@ -1,0 +1,32 @@
+CMakeFiles/caustic3.elf.dir/src/audio.c.obj: \
+ /home/track11/vita-project/src/audio.c \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/audioout.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/types.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2common/types.h \
+ /home/track11/vitasdk/lib/gcc/arm-vita-eabi/10.3.0/include/stddef.h \
+ /home/track11/vitasdk/lib/gcc/arm-vita-eabi/10.3.0/include/stdint.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/stdint.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/machine/_default_types.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/features.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/_newlib_version.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/bits/posix_opt.h \
+ /home/track11/vitasdk/lib/gcc/arm-vita-eabi/10.3.0/include-fixed/limits.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/_intsup.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/sys/_stdint.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/vitasdk/build_utils.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/callback.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2common/kernel/threadmgr.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/cond.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/eventflag.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/lw_cond.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/lw_mutex.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/msgpipe.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/mutex.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/rwlock.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/semaphore.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/signal.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/thread.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/cpu.h \
+ /home/track11/vitasdk/arm-vita-eabi/include/psp2/kernel/threadmgr/vfp.h \
+ /home/track11/vita-project/src/log.h

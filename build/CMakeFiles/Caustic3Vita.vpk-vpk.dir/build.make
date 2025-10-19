@@ -78,7 +78,7 @@ Caustic3Vita.vpk.out: /home/track11/vita-project/lib/libcaustic.so
 
 Caustic3Vita.vpk_param.sfo: eboot.bin
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/track11/vita-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating param.sfo for Caustic3Vita.vpk"
-	/home/track11/vitasdk/bin/vita-mksfoex -s APP_VER=01.00 -s TITLE_ID=CSTC00001 Caustic3Vita /home/track11/vita-project/build/Caustic3Vita.vpk_param.sfo
+	/home/track11/vitasdk/bin/vita-mksfoex -s APP_VER=01.02 -s TITLE_ID=CSTC00001 Caustic3Vita /home/track11/vita-project/build/Caustic3Vita.vpk_param.sfo
 
 Caustic3Vita.vpk-vpk: CMakeFiles/Caustic3Vita.vpk-vpk
 Caustic3Vita.vpk-vpk: Caustic3Vita.vpk.out

@@ -1,12 +1,14 @@
+#include "audio.h"
+#include "libloader.h"
 #include <psp2/kernel/processmgr.h>
 #include <psp2/io/dirent.h>
 #include <psp2/io/fcntl.h>
 #include <psp2/io/stat.h>
 #include <stdio.h>
 
-#include "libloader.h"
-#include "log.h"
 
+#include "log.h"
+unsigned int sceLibcHeapSize = 64 * 1024 * 1024;
 static void write_ping(void) {
     int fd = sceIoOpen("ux0:/data/CAUSTIC3/ping.txt",
                        SCE_O_WRONLY | SCE_O_CREAT | SCE_O_TRUNC, 0666);
@@ -27,6 +29,7 @@ int main() {
     // Dummy Calls
     CausticNative_SetRootPath("ux0:/data/CAUSTIC3/");
     CausticRenderer_nativeInitGraphics(960, 544);
+    audio_test_silent();
 
     debug_log("Initialisierung abgeschlossen.");
     sceKernelExitProcess(0);

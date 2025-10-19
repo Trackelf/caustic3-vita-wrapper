@@ -111,24 +111,10 @@ CMakeFiles/caustic3.elf.dir/src/log.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/caustic3.elf.dir/src/log.c.s"
 	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/track11/vita-project/src/log.c -o CMakeFiles/caustic3.elf.dir/src/log.c.s
 
-CMakeFiles/caustic3.elf.dir/src/soloader.c.obj: CMakeFiles/caustic3.elf.dir/flags.make
-CMakeFiles/caustic3.elf.dir/src/soloader.c.obj: /home/track11/vita-project/src/soloader.c
-CMakeFiles/caustic3.elf.dir/src/soloader.c.obj: CMakeFiles/caustic3.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/track11/vita-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/caustic3.elf.dir/src/soloader.c.obj"
-	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/caustic3.elf.dir/src/soloader.c.obj -MF CMakeFiles/caustic3.elf.dir/src/soloader.c.obj.d -o CMakeFiles/caustic3.elf.dir/src/soloader.c.obj -c /home/track11/vita-project/src/soloader.c
-
-CMakeFiles/caustic3.elf.dir/src/soloader.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/caustic3.elf.dir/src/soloader.c.i"
-	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/track11/vita-project/src/soloader.c > CMakeFiles/caustic3.elf.dir/src/soloader.c.i
-
-CMakeFiles/caustic3.elf.dir/src/soloader.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/caustic3.elf.dir/src/soloader.c.s"
-	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/track11/vita-project/src/soloader.c -o CMakeFiles/caustic3.elf.dir/src/soloader.c.s
-
 CMakeFiles/caustic3.elf.dir/src/so_util.c.obj: CMakeFiles/caustic3.elf.dir/flags.make
 CMakeFiles/caustic3.elf.dir/src/so_util.c.obj: /home/track11/vita-project/src/so_util.c
 CMakeFiles/caustic3.elf.dir/src/so_util.c.obj: CMakeFiles/caustic3.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/track11/vita-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/caustic3.elf.dir/src/so_util.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/track11/vita-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/caustic3.elf.dir/src/so_util.c.obj"
 	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/caustic3.elf.dir/src/so_util.c.obj -MF CMakeFiles/caustic3.elf.dir/src/so_util.c.obj.d -o CMakeFiles/caustic3.elf.dir/src/so_util.c.obj -c /home/track11/vita-project/src/so_util.c
 
 CMakeFiles/caustic3.elf.dir/src/so_util.c.i: cmake_force
@@ -139,13 +125,42 @@ CMakeFiles/caustic3.elf.dir/src/so_util.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/caustic3.elf.dir/src/so_util.c.s"
 	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/track11/vita-project/src/so_util.c -o CMakeFiles/caustic3.elf.dir/src/so_util.c.s
 
+CMakeFiles/caustic3.elf.dir/src/resolve.c.obj: CMakeFiles/caustic3.elf.dir/flags.make
+CMakeFiles/caustic3.elf.dir/src/resolve.c.obj: /home/track11/vita-project/src/resolve.c
+CMakeFiles/caustic3.elf.dir/src/resolve.c.obj: CMakeFiles/caustic3.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/track11/vita-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/caustic3.elf.dir/src/resolve.c.obj"
+	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/caustic3.elf.dir/src/resolve.c.obj -MF CMakeFiles/caustic3.elf.dir/src/resolve.c.obj.d -o CMakeFiles/caustic3.elf.dir/src/resolve.c.obj -c /home/track11/vita-project/src/resolve.c
+
+CMakeFiles/caustic3.elf.dir/src/resolve.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/caustic3.elf.dir/src/resolve.c.i"
+	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/track11/vita-project/src/resolve.c > CMakeFiles/caustic3.elf.dir/src/resolve.c.i
+
+CMakeFiles/caustic3.elf.dir/src/resolve.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/caustic3.elf.dir/src/resolve.c.s"
+	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/track11/vita-project/src/resolve.c -o CMakeFiles/caustic3.elf.dir/src/resolve.c.s
+
+CMakeFiles/caustic3.elf.dir/src/audio.c.obj: CMakeFiles/caustic3.elf.dir/flags.make
+CMakeFiles/caustic3.elf.dir/src/audio.c.obj: /home/track11/vita-project/src/audio.c
+CMakeFiles/caustic3.elf.dir/src/audio.c.obj: CMakeFiles/caustic3.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/track11/vita-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/caustic3.elf.dir/src/audio.c.obj"
+	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/caustic3.elf.dir/src/audio.c.obj -MF CMakeFiles/caustic3.elf.dir/src/audio.c.obj.d -o CMakeFiles/caustic3.elf.dir/src/audio.c.obj -c /home/track11/vita-project/src/audio.c
+
+CMakeFiles/caustic3.elf.dir/src/audio.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/caustic3.elf.dir/src/audio.c.i"
+	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/track11/vita-project/src/audio.c > CMakeFiles/caustic3.elf.dir/src/audio.c.i
+
+CMakeFiles/caustic3.elf.dir/src/audio.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/caustic3.elf.dir/src/audio.c.s"
+	/home/track11/vitasdk/bin/arm-vita-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/track11/vita-project/src/audio.c -o CMakeFiles/caustic3.elf.dir/src/audio.c.s
+
 # Object files for target caustic3.elf
 caustic3_elf_OBJECTS = \
 "CMakeFiles/caustic3.elf.dir/src/main.c.obj" \
 "CMakeFiles/caustic3.elf.dir/src/libloader.c.obj" \
 "CMakeFiles/caustic3.elf.dir/src/log.c.obj" \
-"CMakeFiles/caustic3.elf.dir/src/soloader.c.obj" \
-"CMakeFiles/caustic3.elf.dir/src/so_util.c.obj"
+"CMakeFiles/caustic3.elf.dir/src/so_util.c.obj" \
+"CMakeFiles/caustic3.elf.dir/src/resolve.c.obj" \
+"CMakeFiles/caustic3.elf.dir/src/audio.c.obj"
 
 # External object files for target caustic3.elf
 caustic3_elf_EXTERNAL_OBJECTS =
@@ -153,11 +168,12 @@ caustic3_elf_EXTERNAL_OBJECTS =
 caustic3.elf: CMakeFiles/caustic3.elf.dir/src/main.c.obj
 caustic3.elf: CMakeFiles/caustic3.elf.dir/src/libloader.c.obj
 caustic3.elf: CMakeFiles/caustic3.elf.dir/src/log.c.obj
-caustic3.elf: CMakeFiles/caustic3.elf.dir/src/soloader.c.obj
 caustic3.elf: CMakeFiles/caustic3.elf.dir/src/so_util.c.obj
+caustic3.elf: CMakeFiles/caustic3.elf.dir/src/resolve.c.obj
+caustic3.elf: CMakeFiles/caustic3.elf.dir/src/audio.c.obj
 caustic3.elf: CMakeFiles/caustic3.elf.dir/build.make
 caustic3.elf: CMakeFiles/caustic3.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/track11/vita-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable caustic3.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/track11/vita-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable caustic3.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/caustic3.elf.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

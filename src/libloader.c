@@ -1,18 +1,22 @@
 #include <psp2/io/fcntl.h>
 #include <psp2/io/stat.h>
+#include <psp2/types.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <psp2/kernel/sysmem.h>
 
-#include "soloader.h"
-
+#include "so_util.h"
+#include "resolve.h"
 #include "libloader.h"
 #include "log.h"
 
 static char g_root[256] = "ux0:/data/CAUSTIC3/";
 static char g_buf[768];
 
-static void logf(const char *fmt, ...) {
+// local logger (avoid name clash with libm::logf)
+static void logmsg(const char *fmt, ...) {
     char line[512];
     va_list ap;
     va_start(ap, fmt);
@@ -66,13 +70,65 @@ void CausticRenderer_nativeInitGraphics(int width, int height) {
     debug_log("InitGraphics Dummy ausgeführt.");
 }
 
+static void* read_whole_file(const char *path, size_t *out_size) {
+    int fd = sceIoOpen(path, SCE_O_RDONLY, 0);
+    if (fd < 0) { char m[192]; snprintf(m,sizeof(m),"read_whole_file: open failed %s -> 0x%08X", path, fd); debug_log(m); return NULL; }
+
+    SceOff sz = sceIoLseek(fd, 0, SCE_SEEK_END);
+    if (sz <= 0) { sceIoClose(fd); debug_log("read_whole_file: invalid size"); return NULL; }
+    sceIoLseek(fd, 0, SCE_SEEK_SET);
+
+    // zuerst Memblock versuchen, ausgerichtet auf 4K
+    SceSize need = (SceSize)((sz + 0xFFF) & ~0xFFF);
+    SceUID blk = sceKernelAllocMemBlock("soimg", SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE, need, NULL);
+    if (blk < 0) blk = sceKernelAllocMemBlock("soimg", SCE_KERNEL_MEMBLOCK_TYPE_USER_RW, need, NULL);
+
+    void *base = NULL;
+    if (blk >= 0) {
+        if (sceKernelGetMemBlockBase(blk, &base) < 0 || !base) { base = NULL; }
+    }
+
+    // Fallback auf malloc mit vergrößertem newlib Heap
+    if (!base) {
+        base = malloc((size_t)sz);
+        if (!base) { sceIoClose(fd); debug_log("read_whole_file: malloc failed"); return NULL; }
+    }
+
+    size_t total = 0;
+    char *dst = (char*)base;
+    const size_t CHUNK = 128 * 1024;
+    while (total < (size_t)sz) {
+        size_t want = ((size_t)sz - total) > CHUNK ? CHUNK : ((size_t)sz - total);
+        int rd = sceIoRead(fd, dst + total, want);
+        if (rd <= 0) { debug_log("read_whole_file: short read"); sceIoClose(fd); return NULL; }
+        total += (size_t)rd;
+    }
+    sceIoClose(fd);
+
+    if (out_size) *out_size = (size_t)sz;
+    char m[128]; snprintf(m, sizeof(m), "read_whole_file: ok, %d bytes", (int)sz); debug_log(m);
+    return base; // absichtlich nicht freigeben
+}
+
+
+
 int Loader_EarlyInit(void) {
-    const char *libpath = "app0:/lib/libcaustic.so";
-    int ret = soloader_load_library(libpath);
-    
-    char msg[256];
-    snprintf(msg, sizeof(msg), "soloader_load_library(%s) -> %d", libpath, ret);
-    debug_log(msg);
-    
-    return ret;
+    debug_log("Loader (so_util) begin");
+    const char *lib_path = "app0:/lib/libcaustic.so";
+    size_t so_size = 0;
+    void *so_image = read_whole_file(lib_path, &so_size);
+    if (!so_image) { debug_log("Loader: read failed"); return -1; }
+
+    so_ctx_t ctx;
+    int r = so_init(&ctx, so_image, so_size);
+    char msg[128]; snprintf(msg, sizeof(msg), "so_init -> %d", r); debug_log(msg);
+    if (r < 0) return r;
+
+    so_relocate(&ctx);
+    so_resolve(&ctx, resolve_symbol);
+    so_flush_caches(&ctx);
+    so_initialize(&ctx);
+
+    debug_log("Caustic .so loaded via so_util.");
+    return 0;
 }
